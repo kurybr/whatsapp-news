@@ -126,6 +126,9 @@ declare module 'superchats' {
             textMessage: { text: string };
             extendedTextMessage: { text: string };
             conversation: string;
+            reactionMessage?: { 
+                text: string;
+            }
             documentMessage?: {
                 url: string;
                 mimetype: string;

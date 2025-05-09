@@ -25,7 +25,7 @@ export async function createTables() {
             participant_phone TEXT,
             type TEXT NOT NULL,
             content TEXT,
-            timestamp INTEGER,
+            timestamp DATETIME,
             raw TEXT NOT NULL,
             created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY (participant_phone) REFERENCES participants(phone_number)

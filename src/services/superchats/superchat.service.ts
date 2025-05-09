@@ -46,8 +46,11 @@ class SuperchatService  {
     }
 
     onAnyMessage(message: Superchat.Message) { 
+
+        console.log(message);
+        
         if(!message.isgroup) return;
-        if(message.from !== '120363370740287819') return;
+        if(!['3EB0BA54789F8A9D0022F4', '120363370740287819'].includes(message.from)) return;
         
         // Salvar mensagem no banco de dados
         this.messageRepository.saveMessage(message)

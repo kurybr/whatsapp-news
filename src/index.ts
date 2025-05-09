@@ -5,7 +5,7 @@ dotenv.config({ debug: true, override: true })
 import SuperchatService from './services/superchats/superchat.service';
 
 const app = express();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 9999;
 
 
 SuperchatService.onInit();
