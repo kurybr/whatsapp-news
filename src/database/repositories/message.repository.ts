@@ -30,6 +30,8 @@ export class MessageRepository {
             content = message?.content?.extendedTextMessage?.text;
         } else if(message?.content?.reactionMessage) {
             content = message?.content?.reactionMessage?.text;
+        } else if(message?.content?.ephemeralMessage) { 
+            content = message?.content?.ephemeralMessage?.message?.extendedTextMessage?.text;
         }
 
 

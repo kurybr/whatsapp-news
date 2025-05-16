@@ -1,4 +1,6 @@
 import express from 'express';
+
+
 import * as dotenv from 'dotenv';
 dotenv.config({ debug: true, override: true })
 
@@ -8,18 +10,28 @@ const app = express();
 const port = process.env.PORT || 9999;
 
 
-SuperchatService.onInit();
+// Middleware para interpretar JSON no corpo da requisição
+app.use(express.json());
+
+// Para application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/', async (req, res) => {
-  
-  const messages = await SuperchatService.onHooks();
-  
   res.json({ 
-    message: 'Servidor rodando com TypeScript!',
-    messages
+    message: 'Servidor rodando com TypeScript!'
   });
-
 });
+
+
+app.use('/webhook', async (req, res) => {
+  console.log(req.body);
+  console.log(req.query);
+  res.json({ 
+    message: 'Servidor rodando com TypeScript!'
+  });
+});
+
+
 
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);

@@ -129,6 +129,11 @@ declare module 'superchats' {
             reactionMessage?: { 
                 text: string;
             }
+            ephemeralMessage?: { 
+                message?: {
+                    extendedTextMessage: { text: string };
+                }
+            }
             documentMessage?: {
                 url: string;
                 mimetype: string;
